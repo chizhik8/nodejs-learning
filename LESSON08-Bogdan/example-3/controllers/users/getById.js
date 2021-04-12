@@ -1,0 +1,3 @@
+const getById = (req, res)=> {
+
+};
