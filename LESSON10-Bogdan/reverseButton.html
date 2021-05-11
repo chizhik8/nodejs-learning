@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class ReverseButton {
+
+        toggleText = () => {
+            const {firstText, secondText, elem} = this;
+            elem.textContent = (elem.textContent === firstText) ? secondText : firstText;
+        }
+
+        constructor({firstText, secondText, className}) {
+            this.firstText = firstText;
+            this.secondText = secondText;
+            this.className = className;
+            this.elem = null;
+        }
+
+        render(){
+            const button = document.createElement("button");
+            button.textContent = this.firstText;
+            button.className = this.className || "";
+            button.addEventListener("click", this.toggleText);
+            this.elem = button;
+            return this.elem;
+        }
+    }
+
+    const buttonOptions = {
+        firstText: "Click me!",
+        secondText: "Eat me!"
+    };
+
+    const button = new ReverseButton(buttonOptions);
+    console.log(button)
+    document.body.append(button.render())
+</script>
+</body>
+</html>

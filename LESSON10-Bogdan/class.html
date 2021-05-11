@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Product {
+
+        static shopName = "Rozetka";
+
+        static filterProducts = ()=>{
+
+        }
+
+        constructor({name, price, description}) {
+            this.name = name;
+            this._price = price;
+            this.description = description;
+        }
+
+        get price(){
+            return this._price;
+        }
+
+        set price(value){
+            if(typeof value === "number" && value > 0){
+               return this._price = value;
+            }
+            throw new Error("Цена должна быть положительным числом");
+        }
+
+        getFullDescription(){
+            return `Магазин: ${Product.shopName}.
+                    Описание: ${this.description}`
+        }
+    }
+
+    const lenovoOptions = {
+        name: "lenovo X120S",
+        price: 18600,
+        description: "Новый ноутбук"
+    };
+
+    const lenovoNotebook = new Product(lenovoOptions);
+    console.log(lenovoNotebook);
+    console.log(lenovoNotebook.getFullDescription());
+
+    // console.log(lenovoNotebook.price);
+    // lenovoNotebook.price = -2;
+
+
+</script>
+</body>
+</html>
